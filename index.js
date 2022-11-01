@@ -2,10 +2,10 @@ import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import bodyParser from "body-parser";
-import hotelRoutes from "./routes/hotels.js";
-import userRoutes from "./routes/users.js";
-import authRoutes from "./routes/auth.js";
-import roomsRoutes from "./routes/rooms.js";
+import hotelRoute from "./routes/hotels.js";
+// import usersRoute from "./routes/user.js";
+// import authRoute from "./routes/auth.js";
+// import roomsRoute from "./routes/rooms.js";
 
 const app = express();
 app.use(express.json());
@@ -17,10 +17,10 @@ const connection_url =
   "mongodb+srv://appugupta:12appugupta@cluster0.8juehuz.mongodb.net/?retryWrites=true&w=majority";
 const port = process.env.PORT || 5000;
 
-app.use("/api/auth", authRoutes);
-app.use("/api/user", userRoutes);
-app.use("/api/hotels", hotelRoutes);
-app.use("/api/rooms", roomsRoutes);
+app.use("/api/hotels", hotelRoute);
+// app.use("/api/auth", authRoute);
+// app.use("/api/users", usersRoute);
+// app.use("/api/rooms", roomsRoute);
 
 mongoose
   .connect(connection_url, { useUnifiedTopology: true })
