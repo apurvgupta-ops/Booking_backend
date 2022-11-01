@@ -38,11 +38,11 @@ export const updateHotel = async (req, res) => {
     res.status(500).json(err);
   }
 };
-export const deleteHotel = async (req, res) => {
+export const deleteHotel = async (req, res, next) => {
   try {
-    const data = await Hotel.findByIdAndDelete(req.params.id);
+    await Hotel.findByIdAndDelete(req.params.id);
     res.status(200).json({ message: "Deletion done" });
   } catch (err) {
-    res.status(500).json(err);
+    next(err);
   }
 };
