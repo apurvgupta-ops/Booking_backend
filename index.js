@@ -5,7 +5,7 @@ import bodyParser from "body-parser";
 import hotelRoute from "./routes/hotels.js";
 import cookieParser from "cookie-parser";
 import authRoute from "./routes/auth.js";
-// import usersRoute from "./routes/user.js";
+import usersRoute from "./routes/user.js";
 // import roomsRoute from "./routes/rooms.js";
 
 const app = express();
@@ -33,7 +33,7 @@ app.use((err, req, res, next) => {
 });
 app.use("/api/hotels", hotelRoute);
 app.use("/api/auth", authRoute);
-// app.use("/api/users", usersRoute);
+app.use("/api/users", usersRoute);
 // app.use("/api/rooms", roomsRoute);
 
 mongoose
