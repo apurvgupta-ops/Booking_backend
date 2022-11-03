@@ -7,11 +7,12 @@ import {
   updateHotel,
   deleteHotel,
 } from "../controllers/Hotels.js";
+import { verifyAdmin } from "../utils/verify.js";
 
-router.post("/", createHotel);
+router.post("/", verifyAdmin, createHotel);
 router.get("/", getAllHotels);
 router.get("/:id", getHotel);
-router.patch("/:id", updateHotel);
-router.delete("/:id", deleteHotel);
+router.patch("/:id", verifyAdmin, updateHotel);
+router.delete("/:id", verifyAdmin, deleteHotel);
 
 export default router;
