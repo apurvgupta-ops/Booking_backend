@@ -6,11 +6,15 @@ import {
   createHotel,
   updateHotel,
   deleteHotel,
+  getCitiesCount,
+  getHotelByType,
 } from "../controllers/Hotels.js";
 import { verifyAdmin } from "../utils/verify.js";
 
 router.post("/", verifyAdmin, createHotel);
 router.get("/", getAllHotels);
+router.get("/citycount", getCitiesCount);
+router.get("/hoteltype", getHotelByType);
 router.get("/:id", getHotel);
 router.patch("/:id", verifyAdmin, updateHotel);
 router.delete("/:id", verifyAdmin, deleteHotel);

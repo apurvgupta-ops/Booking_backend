@@ -1,5 +1,6 @@
 import Room from "../models/Rooms.js";
 import Hotel from "../models/Hotels.js";
+
 export const createRoom = async (req, res, next) => {
   const hotelid = req.params.hotelId;
   const newRoom = new Room(req.body);
@@ -51,7 +52,7 @@ export const updateRoom = async (req, res, next) => {
 export const deleteRoom = async (req, res, next) => {
   const hotelid = req.params.hotelId;
   try {
-     await Hotel.findByIdAndDelete(req.params.id);
+    await Hotel.findByIdAndDelete(req.params.id);
     try {
       await Hotel.findByIdAndUpdate(hotelid, {
         $pull: { rooms: req.params.id },
