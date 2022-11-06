@@ -15,7 +15,7 @@ router.post("/", verifyAdmin, createHotel);
 router.get("/", getAllHotels);
 router.get("/citycount", getCitiesCount);
 router.get("/hoteltype", getHotelByType);
-router.get("/:id", getHotel);
+router.get("/find/:id", getHotel);
 router.patch("/:id", verifyAdmin, updateHotel);
 router.delete("/:id", verifyAdmin, deleteHotel);
 
