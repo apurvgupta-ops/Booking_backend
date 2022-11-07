@@ -43,8 +43,8 @@ export const login = async (req, res, next) => {
         httpOnly: true, // it helps to secure the token from the clients
       })
       .status(200)
-      .json({ ...otherDetails });
-    res.status(200).send("user is created");
+      .json({ data: { ...otherDetails }, isAdmin });
+    // res.status(200).send("user is created");
   } catch (err) {
     next(err);
   }

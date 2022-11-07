@@ -21,6 +21,12 @@ const connection_url =
 const port = process.env.PORT || 5000;
 
 //CUSTOM ERROR HANDLING
+
+app.use("/api/hotels", hotelRoute);
+app.use("/api/auth", authRoute);
+app.use("/api/users", usersRoute);
+app.use("/api/rooms", roomsRoute);
+
 app.use((err, req, res, next) => {
   const errStatus = err.status || 500;
   const errMessage = err.message || "Something went wrong";
@@ -31,11 +37,6 @@ app.use((err, req, res, next) => {
     stack: err.stack,
   });
 });
-app.use("/api/hotels", hotelRoute);
-app.use("/api/auth", authRoute);
-app.use("/api/users", usersRoute);
-app.use("/api/rooms", roomsRoute);
-
 mongoose
   .connect(connection_url, { useUnifiedTopology: true })
   .then(() =>
